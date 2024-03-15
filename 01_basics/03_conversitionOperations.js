@@ -25,3 +25,27 @@ let no = 7872;
 // let no = null;
 let stringNo = String(no);
 console.table([no, typeof no, stringNo, typeof stringNo]);
+
+let value = 3;
+let negvalue = -value; // converting a value to a negative value
+console.log(negvalue);
+
+let str1 = "Priangshu";
+let str2 = " Das";
+let str3 = str1 + str2;
+
+console.log(str3);
+
+console.log("1" + 2);
+console.log(1 + "2");
+console.log("1" + 2 + 2); // always treat from left to right
+console.log(1 + 2 + "2");
+console.log(+true);
+console.log(+"");
+//no use of these in production, only for interview purposes
+
+let gameCounter = 100;
+++gameCounter; //prefix increment
+console.log(gameCounter);
+gameCounter++; //postfix increment
+console.log(gameCounter);
