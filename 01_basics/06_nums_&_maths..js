@@ -1,4 +1,4 @@
-/*            Nums and methods           */
+/*            Nums and methods(global objects)           */
 const score = 5000.7685874458;
 const anotherScore = new Number(50000000000);
 console.log(`Score: ${score}`);
@@ -14,7 +14,7 @@ console.log(
   `Local value is ${anotherScore.toLocaleString("en-IN")}`
 ); /*toLocalString prototype method in numbers give local value of given number in string format*/
 
-/*                 Maths                 */
+/*                 Maths Mthods(global objects)                 */
 
 //importent maths methods below
 console.log(Math.abs(-70)); //abs protype method take negetive number and return positive number

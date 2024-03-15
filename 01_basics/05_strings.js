@@ -7,7 +7,7 @@ console.log(`Hello my name is ${name} \nMy age is ${age}`);
 //modern way to inject a dynamic value or variable via "${}"
 
 const hero = new String("shaktiman"); //another way to declare string
-//***Strings prototype methods most imp for interview
+//***Strings prototype methods(global objects) most imp for interview
 //some example below
 
 console.log(
