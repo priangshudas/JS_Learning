@@ -4,7 +4,7 @@ const age = 21;
 // console.log(name + age + " value"); // old techniqe to concatinate
 
 console.log(`Hello my name is ${name} \nMy age is ${age}`);
-//modern way to inject a dynamic value or variable via "${}"
+//modern way to inject a dynamic value or variable via "${}" it is called "String interpolation"
 
 const hero = new String("shaktiman"); //another way to declare string
 //***Strings prototype methods(global objects) most imp for interview
