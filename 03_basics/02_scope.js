@@ -34,6 +34,11 @@ if (true) {
     const website = " youtube";
     // console.log(username + website);
   }
+  /* The line `// console.log(website);` is a commented-out code in JavaScript. This means that this
+  line of code is not executed when the program runs. It is used for adding comments or temporarily
+  disabling code without deleting it. In this case, the line is commented out to prevent an error
+  since the variable `website` is declared inside the `two()` function and is not accessible outside
+  of it. */
   // console.log(website);
 }
 
