@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom_new_element</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.534);
+            color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        let newDiv = document.createElement("div") //create new element in dom memory
+
+        newDiv.className = "main_div"
+        newDiv.id = Math.random()
+        newDiv.innerHTML = "Hello World"
+        newDiv.style.width = "300px"                          // multiple methods to set and add classname,id,attributes,content,styling
+        newDiv.setAttribute("title", "some title")
+        newDiv.style.backgroundColor = "red"
+
+        console.log(newDiv);
+        document.body.appendChild(newDiv) // finally attachd that element in body through appendChild method
+    </script>
+</body>
+
+
+</html>

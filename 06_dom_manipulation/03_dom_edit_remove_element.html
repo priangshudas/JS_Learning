@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom_edit_remove_element</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.534);
+            color: wheat;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul class="progLangs">
+        <li>Javascript</li>
+    </ul>
+
+    <script>
+        const addLangs = (langName) => { // function to add new lang to the ul
+            const ul = document.querySelector('.progLangs');
+            const newLi = document.createElement('li');
+            newLi.textContent = langName;
+            ul.appendChild(newLi);
+        }
+
+        const addLangsOptimized = (anotherLangName) => { // Optimized function to add new lang to the ul
+            const ul = document.querySelector('.progLangs');
+            const newLi = document.createElement('li');
+            newLi.appendChild(document.createTextNode(anotherLangName));
+            ul.appendChild(newLi);
+        }
+
+        addLangs("Python")
+        addLangsOptimized("Java")
+        addLangsOptimized("Ruby")
+
+        //EDIT DOM ELEMENTS
+
+        const editedEl = document.querySelector("li:nth-child(2)")
+        // console.log(editedEl);
+        // editedEl.textContent = "C++"
+        // editedEl.outerHTML = '<li>TypeScript</li>'
+        const newli = document.createElement('li')
+        newli.textContent = "Mojo"
+        editedEl.replaceWith(newli)
+
+        //REMOVE DOM ELEMENTS
+
+        const removedEl = document.querySelector("li")
+        removedEl.remove()
+    </script>
+</body>
+
+</html>
