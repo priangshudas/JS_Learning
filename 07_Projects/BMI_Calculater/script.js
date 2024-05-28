@@ -1,4 +1,4 @@
-const form = document.querySelector("form");
+let form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -15,7 +15,15 @@ form.addEventListener("submit", (e) => {
     result.style.color = "red";
   } else {
     const answer = (weight / ((height * height) / 10000)).toFixed(2);
-    result.innerHTML = `Your BMI is - ${answer}`;
+    let weightGuide = "";
+    if (answer < 18.6) {
+      weightGuide = "Underweight";
+    } else if (answer >= 18.6 || answer < 24.9) {
+      weightGuide = "Normal weight";
+    } else {
+      weightGuide = "Overweight";
+    }
+    result.innerHTML = `<span>Your BMI is - ${answer}, <span/><span>You have ${weightGuide}<span/>`;
     result.style.color = "black";
   }
 });
