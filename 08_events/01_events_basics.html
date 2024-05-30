@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events_basics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: burlywood;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 20px;
+        }
+
+        div ul {
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li>
+                <a style="color: aliceblue;" href="https://google.com" id="google">Google</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //SOME IMPORTANT EVENTS
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget,
+        // clientX, clientY, screenX, screenY
+        // altkey, ctrlkey, shiftkey, keyCode
+
+        // document.querySelector("#owl").onclick = () => {
+        //     alert("You clicked owl")
+        // }
+
+        // document.getElementById("images").addEventListener("click", (e) => {
+        //     // alert("You clicked images owl")
+        //     console.log("You clicked images owl");
+        // }, false)
+
+        /*If addeventlistner had false attribute then it is default and do not support eventPropagation and uses eventBubbling mode(bottom to top)*/
+
+        // document.getElementById("river").addEventListener("click", (e) => {
+        //     // alert("You clicked river")
+        //     console.log("You clicked river");
+        // }, false)
+
+        document.getElementById("google").addEventListener("click", (e) => {
+            console.log("You clicked google");
+            e.preventDefault();
+            e.stopPropagation();
+        }, false)
+
+        document.getElementById("images").addEventListener("click", (e) => {
+            // alert("You clicked images owl")
+            console.log("You clicked images owl");
+        }, true)
+
+        /*If addeventlistner had false attribute then it do not support eventPropagation and uses eventCapturing mode(top to bottom)*/
+
+        document.getElementById("river").addEventListener("click", (e) => {
+            // alert("You clicked river")
+            console.log("You clicked river");
+        }, true)
+
+        document.getElementById("images").addEventListener("click", (e) => {
+            if (e.target.tagName === "IMG") {
+                e.target.parentNode.remove()
+            }
+        })
+    </script>
+</body>
+
+</html>
