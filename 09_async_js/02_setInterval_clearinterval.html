@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval & clearInterval</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: grey;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Check the console</h1>
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+
+    <script>
+
+        let interval;
+
+        document.querySelector("#start").addEventListener("click", () => {
+            interval = setInterval(() => {
+                console.log("Priangshu das");
+            }, 2000)
+            console.log("Start Printing");
+        })
+
+        document.querySelector("#stop").addEventListener("click", () => {
+            clearInterval(interval)
+            console.log("Stopped Printing");
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout & clearTiemout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background: gray;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Priangshu</h1>
+    <button type="button" id="stop">Stop</buttonid>
+
+
+        <script>
+            //setTimeout do the task after given time
+            //clearTiemout cancel the execution to referenced setTimeout
+
+            // const printHelloWorld = () => {
+            //     console.log("Hello World");
+            // }
+
+            const addSurname = () => {
+                document.querySelector("h1").innerHTML = "Priangshu das"
+            }
+
+            const timeout = setTimeout(addSurname, 4000)
+            document.querySelector("#stop").addEventListener("click", () => {
+                clearTimeout(timeout)
+                console.log("Stopped");
+            })
+        </script>
+</body>
+
+</html>
