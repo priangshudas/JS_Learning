@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: aliceblue;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            border: 2px solid aqua;
+            border-radius: 30px;
+            width: 20rem;
+            height: 25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 10px;
+            margin-top: 20px;
+        }
+
+        #img_div {
+            border: 2px solid aqua;
+            border-radius: 50%;
+            width: 8rem;
+            height: 8rem;
+            overflow: hidden;
+            margin-top: 40px;
+            background: url(https://avatars.githubusercontent.com/u/9919?v=4);
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        #input {
+            margin-top: 15px;
+
+        }
+
+        #input form {
+            display: flex;
+            gap: 10px;
+        }
+
+        #input input {
+            padding: 10px 10px;
+            border-radius: 30px;
+            border: 2px solid aqua;
+        }
+
+        #input button {
+            padding: 10px 10px;
+            border-radius: 30px;
+            border: none;
+            background-color: aqua;
+            transition: all ease 0.2s;
+        }
+
+        #input button:active {
+            scale: 0.75;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Know Github Users</h2>
+    <div id="input">
+        <form id="form">
+            <input title="text" type="text" id="GithubId" placeholder="github-username">
+            <button title="button" type="submit" id="GetInfo">GetInfo</button>
+        </form>
+
+
+    </div>
+    <div id="main">
+        <div id="img_div">
+
+        </div>
+        <p id="name_p">Name - GitHub</p>
+        <p id="bio_p">Bio - How people build software.</p>
+        <p id="followers_p">Followers - 39088</p>
+        <p id="country_p">Country - San Francisco, CA</p>
+    </div>
+
+    <script>
+        document.querySelector("#form").addEventListener("submit", (e) => {
+            e.preventDefault()
+            let gitId = document.querySelector("#GithubId").value
+            // console.log(gitId);
+            const requestUrl = `https://api.github.com/users/${gitId}`
+            const xhr = new XMLHttpRequest();
+            let followers
+            let imgUrl
+            let name
+            let bio
+            let country
+            xhr.open('GET', requestUrl)
+            xhr.onreadystatechange = function () {
+                console.log(xhr.readyState);
+                if (xhr.readyState === 4) {
+                    const data = JSON.parse(this.responseText)
+                    // console.log(typeof data);
+                    // console.log(data);
+                    imgUrl = data.avatar_url;
+                    followers = data.followers
+                    name = data.name
+                    bio = data.bio
+                    country = data.location
+                    // console.log(followers);
+                    document.querySelector("#img_div").style.backgroundImage = `url(${imgUrl})`
+                    console.log(imgUrl);
+                    document.querySelector("#followers_p").innerHTML = `Followers - ${followers}`
+                    document.querySelector("#name_p").innerHTML = `Name - ${name}`
+                    document.querySelector("#bio_p").innerHTML = `Bio - ${bio}`
+                    document.querySelector("#country_p").innerHTML = `Country - ${country}`
+                }
+
+            }
+            xhr.send();
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
